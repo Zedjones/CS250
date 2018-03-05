@@ -1,0 +1,17 @@
+* Exam
+    Definitely need to know the two passes and what they do
+    Look at the handout we got on Monday
+* Process of assembler
+** Each label's address is the number of bytes previously written to buffer
+** Data location counter and text location counter (DLC and TLC)
+    Text block offset by 400,000; data by 1,000,000
+    T for text, D for data during assembly
+** .global
+*** external reference
+    label you use but other file defines
+*** external definition
+    something you define that others use
+* Process of a linker 
+** Two major jobs (just need to know this for exam)
+*** Merging multiple object modules together to generate a new module
+*** Resolve external references to external definitions
