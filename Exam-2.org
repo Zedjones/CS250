@@ -1,7 +1,7 @@
 * Lectures
   - [ ] Week 4: MIPS Change of Exec Location Instructions
    - I'm missing one of these lecture notes, need to check website 
-  - [ ] Week 5: Switch Statements
+  - [X] Week 5: Switch Statements
   - [ ] Week 6: Functions and Stack Frame
    - Make sure to review the standard stack frame 
   - [ ] Week 7: I/O and MIPS syscall
@@ -16,4 +16,59 @@
   - [ ] rem $t0, $t1, $t2 (can be imm or reg)
    - div $t1, $t2 
    - mfhi $t0
-  - [ ] 
+* Implementing Control Structures
+  - [X] Conditional Tests and Conditional Branches
+   - slt, beq
+  - [X] If, then, else
+   - slt, beq
+  - [-] Loops
+   - [X] For Loop
+    - loop:
+     - beq $s0, $s1, done
+     - //body
+     - addi $s0, $s0, 1
+     - j loop
+    - done:
+   - [ ] Do, While Loop
+    - loop:
+     - #body
+     - addi $s0, $s0, 1
+     - slt $t0, $s0, $s1
+     - bne $t0, $zero, loop
+  - [ ] Switch Statements
+   - Assume that $s0 has case, table contains an array with 3 entries, one
+     for each case (0, 1, 2), def is end 
+   - slt $t0, $s0, $zero #check for < 0
+   - bne $t0, $zero, def 
+   - li $t1, 2
+   - slt $t0, $t1, $s0, #check for <= 2
+   - bne $t0, $zero, def 
+   - la $t2, table 
+   - mul $t3, $s0, 4
+   - add $s1, $t2, $t3
+   - lw $s1, 0($s1)
+   - Now we can jump to the proper case
+* Data Structures
+  - [ ] Structs
+   - bar:
+    - .word 0, 0, 0 
+   - #Assuming t1 = 1, t2 = 2, t3 = 3
+   - la $t0, bar 
+   - sw $t1, 0($s0)
+   - sw $t2, 4($s0)
+   - sw $t3, 8($s0)
+* Dot Directives
+  - [X] .text
+  - [X] .data
+  - [X] .align n
+  - [X] .word n, m, ...
+  - [X] .ascii
+  - [ ] .asciiz
+   - Same as .ascii, but with nul-termination 
+  - [ ] .space n
+   - Sets aside n bytes of uninitialized memory
+* Miscellaneous Definition
+  - [ ] External Definition
+   - Label you define that other ASM modules can use 
+  - [ ] External Reference
+   - Label you use but other files define 
