@@ -62,7 +62,7 @@
      - lw $s0, 4($sp)
      - lw $s1, 0($sp)
      - addi $sp, $sp, 8
-  - [ ] Handling the frame pointer 
+  - [ ] Frame Pointer 
    - Points to the top address of their stack frame 
   - [ ] Structs
    - bar:
@@ -83,6 +83,28 @@
    - Same as .ascii, but with nul-termination 
   - [ ] .space n
    - Sets aside n bytes of uninitialized memory
+* Standard Stack Frame
+  - [ ] In caller
+   - Save space for first four arguments
+   - Place arguments 5 ... n  on the stack
+   - Call callee
+    - After return, pop arguments 5 ... n off of stack
+     - Helps with possible confusion about number of arguments
+  - [ ] In Callee
+   - Push ra to stack
+   - Push saved registers to stack (s0 ... s7, fp)
+   - Set aside space for local variables
+   - Set frame pointer to top of my frame
+   - If calling another function
+    - Save a0 ... a3
+    - Call function
+    - Restore a0 ... a3
+   - //other code
+   - Move sp past local variables
+   - Restore ra
+   - Restore saved registers (s0 ... s7)
+   - Restore main's fp
+   - Return (jr $ra)
 * Miscellaneous Definitions
   - [X] External Definition
    - Label you define that other ASM modules can use
@@ -96,3 +118,7 @@
    - Saved registers by callee, because you call functions more often than
      writing them and we're lazy 
    - Local variables by callee 
+  - [ ] Program Counter 
+   - Register that contains the location of the next instruction to execute
+   - Link instructions save return address (current $pc) before changing
+     execution location 
