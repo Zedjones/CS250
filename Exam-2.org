@@ -1,27 +1,27 @@
 * Lectures
-  - [ ] Week 4: MIPS Change of Exec Location Instructions
-   - I'm missing one of these lecture notes, need to check website 
+  - [X] Week 4: MIPS Change of Exec Location Instructions
+   - I'm missing one of these lecture notes, need to check website
   - [X] Week 5: Switch Statements
   - [X] Week 6: Functions and Stack Frame
    - Make sure to review the standard stack frame
-  - [ ] Week 7: I/O and MIPS syscall
-  - [ ] Week 8: Program Translation
-   - Only one lecture for this, review handout 
+  - [X] Week 7: I/O and MIPS syscall
+  - [X] Week 8: Program Translation
+   - Only one lecture for this, review handout
 * Implementing Pseudo-instructions
-  - [ ] la $t0, foo
+  - [X] la $t0, foo
    - ori $t0, $t0, foo & 0xFFFF
    - lui $t0, foo >> 16
   - [X] move $t0, $t1
    - add $t0, $zero, $t1
-  - [ ] rem $t0, $t1, $t2 (can be imm or reg)
-   - div $t1, $t2 
+  - [X] rem $t0, $t1, $t2 (can be imm or reg)
+   - div $t1, $t2
    - mfhi $t0
 * Implementing Control Structures
   - [X] Conditional Tests and Conditional Branches
    - slt, beq
   - [X] If, then, else
    - slt, beq
-  - [-] Loops
+  - [X] Loops
    - [X] For Loop
     - loop:
      - beq $s0, $s1, done
@@ -29,27 +29,27 @@
      - addi $s0, $s0, 1
      - j loop
     - done:
-   - [ ] Do, While Loop
+   - [X] Do, While Loop
     - loop:
      - #body
      - addi $s0, $s0, 1
      - slt $t0, $s0, $s1
      - bne $t0, $zero, loop
-  - [ ] Switch Statements
+  - [X] Switch Statements
    - Assume that $s0 has case, table contains an array with 3 entries, one
      for each case (0, 1, 2), def is end 
    - slt $t0, $s0, $zero #check for < 0
-   - bne $t0, $zero, def 
+   - bne $t0, $zero, def
    - li $t1, 2
    - slt $t0, $t1, $s0, #check for <= 2
-   - bne $t0, $zero, def 
-   - la $t2, table 
+   - bne $t0, $zero, def
+   - la $t2, table
    - mul $t3, $s0, 4
    - add $s1, $t2, $t3
    - lw $s1, 0($s1)
    - Now we can jump to the proper case
 * Data Structures
-  - [ ] Handling the stack pointer
+  - [X] Handling the stack pointer
    - Push
     - move sp, write to location
      - #Assuming x = 8
@@ -62,13 +62,13 @@
      - lw $s0, 4($sp)
      - lw $s1, 0($sp)
      - addi $sp, $sp, 8
-  - [ ] Frame Pointer 
-   - Points to the top address of their stack frame 
-  - [ ] Structs
+  - [X] Frame Pointer
+   - Points to the top address of their stack frame
+  - [X] Structs
    - bar:
-    - .word 0, 0, 0 
+    - .word 0, 0, 0
    - #Assuming t1 = 1, t2 = 2, t3 = 3
-   - la $t0, bar 
+   - la $t0, bar
    - sw $t1, 0($s0)
    - sw $t2, 4($s0)
    - sw $t3, 8($s0)
@@ -89,13 +89,13 @@
    - PRINT_INT = 1
    - PRINT_STRING = 4
 * Standard Stack Frame
-  - [ ] In Caller
-   - Save space for first four arguments
+  - [X] In Caller
+   - Save space for first four arguments (in case callee needs to save them)
    - Place arguments 5 ... n  on the stack
    - Call callee
     - After return, pop arguments 5 ... n off of stack
      - Helps with possible confusion about number of arguments
-  - [ ] In Callee
+  - [X] In Callee
    - Push ra to stack
    - Push saved registers to stack (s0 ... s7, fp)
    - Set aside space for local variables
@@ -112,23 +112,23 @@
    - Return (jr $ra)
 * Assembler Process
   - 2 Passes
-   - [ ] Pass 1
+   - [X] Pass 1
     - Finds the address for all the labels/builds the symbol table
      - Comprised of label + address of that label
     - Extra (Done in parallel)
      - Lexical Analysis (tokenization)
      - Syntax Analysis (making sure opcodes are correct)
-   - [ ] Pass 2
-    - Builds the object module, defines space in the data section 
+   - [X] Pass 2
+    - Builds the object module, defines space in the data section
     - Extra (Done in parallel)
      - Semantic Analysis
       - Checking that number of operands are correct as well as the type
-       - Register vs constant 
+       - Register vs constant
    - Required to do things that aren't marked as extra 
 * Linker
-  - [ ] Two major jobs 
-   - Merging multiple object modules together to generate a new module 
-   - Resolving external references to external definitions 
+  - [X] Two major jobs
+   - Merging multiple object modules together to generate a new module
+   - Resolving external references to external definitions
 * Syscalls
   - Takes syscall value in v0
   - Arguments normally passed in with $a registers, may be different 
@@ -150,17 +150,17 @@
    - Label you use but other files define
   - [X] Stack grows downward, heap grows upward
   - [X] Main must be a label for the start of ASM program
-  - [ ] Stack frame
-   - Arguments put on stack frame by the caller 
-   - Return address by the callee 
+  - [X] Stack frame
+   - Arguments put on stack frame by the caller
+   - Return address by the callee
    - Saved registers by callee, because you call functions more often than
      writing them and we're lazy 
-   - Local variables by callee 
-  - [ ] Program Counter
+   - Local variables by callee
+  - [X] Program Counter
    - Register that contains the location of the next instruction to execute
    - Link instructions save return address (current $pc) before changing
      execution location 
-  - [ ] DMA Controller 
-   - Input device specific, manages entire I/O event through memory 
-   - Main CPU doesn't have to manage I/O byte by byte 
-   - CPU interrupted when the DMA activity is finished 
+  - [X] DMA Controller
+   - Input device specific, manages entire I/O event through memory
+   - Main CPU doesn't have to manage I/O byte by byte
+   - CPU interrupted when the DMA activity is finished
