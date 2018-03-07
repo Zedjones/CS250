@@ -1,0 +1,19 @@
+* Lectures
+  - [ ] Week 4: MIPS Change of Exec Location Instructions
+   - I'm missing one of these lecture notes, need to check website 
+  - [ ] Week 5: Switch Statements
+  - [ ] Week 6: Functions and Stack Frame
+   - Make sure to review the standard stack frame 
+  - [ ] Week 7: I/O and MIPS syscall
+  - [ ] Week 8: Program Translation
+   - Only one lecture for this, review handout 
+* Implementing Pseudo-instructions
+  - [ ] la $t0, foo
+   - ori $t0, $t0, foo & 0xFFFF
+   - lui $t0, foo >> 16
+  - [X] move $t0, $t1
+   - add $t0, $zero, $t1
+  - [ ] rem $t0, $t1, $t2 (can be imm or reg)
+   - div $t1, $t2 
+   - mfhi $t0
+  - [ ] 
