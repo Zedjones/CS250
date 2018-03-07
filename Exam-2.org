@@ -125,6 +125,10 @@
       - Checking that number of operands are correct as well as the type
        - Register vs constant 
    - Required to do things that aren't marked as extra 
+* Linker
+  - [ ] Two major jobs 
+   - Merging multiple object modules together to generate a new module 
+   - Resolving external references to external definitions 
 * Syscalls
   - Takes syscall value in v0
   - Arguments normally passed in with $a registers, may be different 
