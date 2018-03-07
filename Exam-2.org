@@ -2,8 +2,8 @@
   - [ ] Week 4: MIPS Change of Exec Location Instructions
    - I'm missing one of these lecture notes, need to check website 
   - [X] Week 5: Switch Statements
-  - [ ] Week 6: Functions and Stack Frame
-   - Make sure to review the standard stack frame 
+  - [X] Week 6: Functions and Stack Frame
+   - Make sure to review the standard stack frame
   - [ ] Week 7: I/O and MIPS syscall
   - [ ] Week 8: Program Translation
    - Only one lecture for this, review handout 
@@ -74,17 +74,19 @@
    - sw $t3, 8($s0)
 * Dot Directives
   - [X] .text
+   - Block starts at 400K 
   - [X] .data
+   - Block starts at 10M
   - [X] .align n
   - [X] .word n, m, ...
   - [X] .ascii
   - [X] .global label
-  - [ ] .asciiz
-   - Same as .ascii, but with nul-termination 
+  - [X] .asciiz
+   - Same as .ascii, but with nul-termination
   - [ ] .space n
    - Sets aside n bytes of uninitialized memory
 * Standard Stack Frame
-  - [ ] In caller
+  - [ ] In Caller
    - Save space for first four arguments
    - Place arguments 5 ... n  on the stack
    - Call callee
@@ -105,6 +107,20 @@
    - Restore saved registers (s0 ... s7)
    - Restore main's fp
    - Return (jr $ra)
+* Syscalls
+  - Takes syscall value in v0
+  - Arguments normally passed in with $a registers, may be different 
+  - Return values normally in $v registers
+  - For example, read_int() (syscall 5) reads int into v0
+  - Example of read_string(): 
+   - .data 
+   - buf: 
+    - .space 2
+   - .text 
+   - li $v0, 8 #read_string() 
+   - la $a0, buf #address to read into  
+   - li $a1, 2 #number of bytes to read in 
+   - syscall 
 * Miscellaneous Definitions
   - [X] External Definition
    - Label you define that other ASM modules can use
@@ -118,7 +134,11 @@
    - Saved registers by callee, because you call functions more often than
      writing them and we're lazy 
    - Local variables by callee 
-  - [ ] Program Counter 
+  - [ ] Program Counter
    - Register that contains the location of the next instruction to execute
    - Link instructions save return address (current $pc) before changing
      execution location 
+  - [ ] DMA Controller 
+   - Input device specific, manages entire I/O event through memory 
+   - Main CPU doesn't have to manage I/O byte by byte 
+   - CPU interrupted when the DMA activity is finished 
