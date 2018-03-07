@@ -51,16 +51,17 @@
 * Data Structures
   - Handling the stack pointer
    - Push
-    - move sp 
-    - write to location 
-    - #Assuming x = 8
-    - addi $sp, $sp, -x 
-    - sw $s0, x-4($sp)
-    - sw $s1, x-8($sp)
-     - Makes things look nicer and easier to change x if needed 
+    - move sp, write to location 
+     - #Assuming x = 8
+     - addi $sp, $sp, -x 
+     - sw $s0, x-4($sp)
+     - sw $s1, x-8($sp)
+      - Makes things look nicer and easier to change x if needed 
    - Pop 
-    - read from location 
-    - move space
+    - read from location, move space
+     - lw $s0, 4($sp)
+     - lw $s1, 0($sp)
+     - addi $sp, $sp, -8
   - [ ] Structs
    - bar:
     - .word 0, 0, 0 
