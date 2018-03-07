@@ -83,8 +83,11 @@
   - [X] .global label
   - [X] .asciiz
    - Same as .ascii, but with nul-termination
-  - [ ] .space n
+  - [X] .space n
    - Sets aside n bytes of uninitialized memory
+  - [X] .equals sym = value
+   - PRINT_INT = 1
+   - PRINT_STRING = 4
 * Standard Stack Frame
   - [ ] In Caller
    - Save space for first four arguments
@@ -107,6 +110,21 @@
    - Restore saved registers (s0 ... s7)
    - Restore main's fp
    - Return (jr $ra)
+* Assembler Process
+  - 2 Passes
+   - [ ] Pass 1
+    - Finds the address for all the labels/builds the symbol table
+     - Comprised of label + address of that label
+    - Extra (Done in parallel)
+     - Lexical Analysis (tokenization)
+     - Syntax Analysis (making sure opcodes are correct)
+   - [ ] Pass 2
+    - Builds the object module, defines space in the data section 
+    - Extra (Done in parallel)
+     - Semantic Analysis
+      - Checking that number of operands are correct as well as the type
+       - Register vs constant 
+   - Required to do things that aren't marked as extra 
 * Syscalls
   - Takes syscall value in v0
   - Arguments normally passed in with $a registers, may be different 
