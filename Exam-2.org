@@ -49,19 +49,21 @@
    - lw $s1, 0($s1)
    - Now we can jump to the proper case
 * Data Structures
-  - Handling the stack pointer
+  - [ ] Handling the stack pointer
    - Push
-    - move sp, write to location 
+    - move sp, write to location
      - #Assuming x = 8
-     - addi $sp, $sp, -x 
+     - addi $sp, $sp, -x
      - sw $s0, x-4($sp)
      - sw $s1, x-8($sp)
-      - Makes things look nicer and easier to change x if needed 
-   - Pop 
+      - Makes things look nicer and easier to change x if needed
+   - Pop
     - read from location, move space
      - lw $s0, 4($sp)
      - lw $s1, 0($sp)
-     - addi $sp, $sp, -8
+     - addi $sp, $sp, 8
+  - [ ] Handling the frame pointer 
+   - Points to the top address of their stack frame 
   - [ ] Structs
    - bar:
     - .word 0, 0, 0 
@@ -76,17 +78,18 @@
   - [X] .align n
   - [X] .word n, m, ...
   - [X] .ascii
+  - [X] .global label
   - [ ] .asciiz
    - Same as .ascii, but with nul-termination 
   - [ ] .space n
    - Sets aside n bytes of uninitialized memory
 * Miscellaneous Definitions
-  - [ ] External Definition
-   - Label you define that other ASM modules can use 
-  - [ ] External Reference
-   - Label you use but other files define 
-  - [ ] Stack grows downward, heap grows upward
-  - [ ] Main must be a label for the start of ASM program
+  - [X] External Definition
+   - Label you define that other ASM modules can use
+  - [X] External Reference
+   - Label you use but other files define
+  - [X] Stack grows downward, heap grows upward
+  - [X] Main must be a label for the start of ASM program
   - [ ] Stack frame
    - Arguments put on stack frame by the caller 
    - Return address by the callee 
