@@ -20,4 +20,11 @@
     - Otherwise, just continue 
    - If the global ref table is empty after the previous loop, mark file as
      executable 
-    - To run on the command line, you need a global def table entry for main   
+    - To run on the command line, you need a global def table entry for main  
+* Hardware 
+ - Use voltage to measure binary 
+  - Time vs Voltage (like a graph) 
+   - Impossible to keep the voltage at any exact point 
+   - We have a threshold between 1 and 0  
+    - Actually we have 2 thresholds 
+     - Top section is 1, middle is error, bottom is 0  
