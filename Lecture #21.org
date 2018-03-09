@@ -1,0 +1,23 @@
+* Linker
+ - Merging multiple object modules into a larger object module
+  - Relocate any absolute addresses in the code with their load points
+   - TLP (text load point) and DLP (data load point)
+    - TLP initialized at 400K, DLP at 10M
+   - Loop through all the OM
+    - Append text and data onto the global text and global data, respectively 
+ - Resolve external references to external definitions
+   - Go through each table (rel table, ref table, def table, sym table)
+    - For every entry, add it to the global version of the tables with the
+      address offset by the appropriate load point 
+    - As we go through the rel table, we have to update the location in the
+      text/data blocks with the appropriate load points 
+    - Update TLP and DLP based on the size of the text and data areas 
+   - Loop through the global ref table
+    - If the entry has a match in the global def table
+     - Update the line of code that used the reference with the address from
+       the global def table 
+     - Remove the entry from the global ref table 
+    - Otherwise, just continue 
+   - If the global ref table is empty after the previous loop, mark file as
+     executable 
+    - To run on the command line, you need a global def table entry for main   
