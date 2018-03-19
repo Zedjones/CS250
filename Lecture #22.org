@@ -48,7 +48,7 @@
      - 1000 & 0000
     - Addition
      - s1m1 + s2m2 = srmr
-      - =if s1 === =s2=
+      - ~if s1 == s2~
        - =sr = s1= 
        - =mr = m1 + m2=
       - =else if m1 > m2= 
