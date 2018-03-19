@@ -1,0 +1,63 @@
+* Conversion from base 10 to base 2 (and base 10) and back
+ - 143
+  - To convert this to base 10
+   - Find 1's digit, 10's digit, and the 100's digit
+    - To find 1's digit, take 143 % 10
+     - 3
+    - 14 % 10 = 4 
+    - 1 % 10 = 1
+  - To convert this to base 2
+   - 143 % 2 = 1
+   - 71 % 2 = 1 
+   - 35 % 2 = 1 
+   - 17 % 2 = 1 
+   - 8 % 2 = 0
+   - 4 % 2 = 0 
+   - 2 % 2 = 0 
+   - 1 % 2 = 1
+   - 10001111
+  - To go back
+   - 1 (128) + 0 (64) + 0 (32) + 0 (16) + 1 (8) + 1 (4) + 1 (2) + 1 (1)
+    - 143
+    - This is one way to do it 
+* Other bases we care about
+ - Base 100
+  - 414329647 % 100 = 47 
+  - 4143296 % 100 = 96 
+ - Base 8
+  - 1011011011
+   - 1333 
+  - 10110110
+   - 266
+ - Base 16
+  - 0 - 9 is 0 - 9 
+  - 10 - 15 is A - F
+   - 10110110
+    - B6
+  - Easiest way to convert hex to octal (this will be on exam) 
+   - Base 8 -> Base 2 -> Base 16
+* Negative Numbers
+ - -143
+  - We have a sign and a magnitude 
+  - For this number, we take 143 and multiply by -1
+ - 1010
+  - Use 1 (high order) as sign digit, the rest as magnitude
+   - Problems
+    - This gives us a +0 and a -0, however, meaning we have 1 less unique
+      representations
+     - 1000 & 0000
+    - Addition
+     - s1m1 + s2m2 = srmr
+      - ~if s1 == s2~
+       - =sr = s1= 
+       - =mr = m1 + m2=
+      - =else if m1 > m2= 
+       - =sr = s1=
+       - =mr = m1 - m2= 
+      - =else if m2 > m1= 
+       - =sr = s2= 
+       - =mr = m2 - m1= 
+      - =else= 
+       - =mr = 0=
+       - =sr = +=
+  - This is -2 
