@@ -1,4 +1,54 @@
 * Diminished Radix Complement
- - A number __x__
-  - in base __r__
-   - with fixed size of number __n__
+ - A number x
+  - in base r
+   - with fixed size of number n
+ - Called the (r-1)'s complement (or one's complement)
+  - (r^n-1)-x
+ - n = 3, r = 10, x = 164
+  - (10^3-1)-164 = 999-164 = 835 
+ - n = 4, r = 2, x = 0110 (6)
+  - Complement is 1001, which is "-6"
+   - We can read the sign, and then read the flipped version (0110) for the
+     magnitude 
+   - Only in this system (one's complement) 
+  - Negative version is mirrored over the center line 
+  - 1010 (-5) + 0010 (2) = 1100 (which is -3)
+  - 1110 (-1) + 0100 (4) = 0010 (which is 2)
+   - This is a problem because we stepped over 0 twice
+    - To solve this, we add the end carry over back in 
+  - 1110 (-1) + 1110 (-1) = 1100 + 1 (carry over) = 1101 (-2)
+ - *We still have two representations of 0 using this method*
+* Radix Complement
+ - Called the r's complement (or two's complement)
+  - ((r^n-1)-x)+1
+   - Add one after flipping the bits
+  - Just shifts the one's complement number line by one 
+  - Everything below assumes n = 4, r = 2
+  - 0110 (4)
+   - 1011 (flipped) + 1 = 1100 (-4)
+  - 0000
+   - 1111 + 1 = 0000
+   - *This gets rid of the representation for -0*
+  - 1011 (-5) + 0010 (2) = 1101 (-3)
+  - 1111 (-1) + 0100 (4) = 0010 (3)
+   - We no longer have to add the carry in after stepping over right side 
+  - 1000 = 0111 + 1 = 1000
+   - So we just call this -8
+   - We gain one negtaive number for removing the negative 0
+ - *We don't need to multiply positive numbers by anything to get their value
+   in two's complement, so we just take the number*
+* Boolean Operators 
+ - AND
+  - T if both are T, false otherwise
+  - A dot B, AB
+ - OR
+  - F is both are false, true otherwise
+  - A + B
+ - NOT
+  - T when input is false, false otherwise  
+  - A bar, bar(A dot B)
+ - XOR
+  - T if exactly one input is true, false otherwise   
+  - A circle + B
+  - A circle + B circle + C
+   - (A circle plus B) circle plus C 
