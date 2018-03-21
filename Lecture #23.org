@@ -1,0 +1,4 @@
+* Diminished Radix Complement
+ - A number __x__
+  - in base __r__
+   - with fixed size of number __n__
