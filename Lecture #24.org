@@ -73,4 +73,15 @@
   - Input first, and then output 
    - Put input alphabetically 
     - Put the rows in numerical order
-    
+* Forms
+ - *Literal* - a single variable in a problem in complemented or uncomplemented
+   form (i.e. A, NOT B)
+ - *Term* - a group of literals connected by boolean operators (i.e. A AND B
+   OR A AND NOT B)
+ - *Homogeneous term* - term that uses exactly one kind of operator (i.e. A
+   AND B AND NOT C)
+ - Standard form of expressions 
+  - Homogeneous terms and connect them with the other operator
+ - Sum of product expression 
+  - All terms are product terms that we OR together (i.e. A or NOT B or NOT A
+    or NOT B or B AND C)
