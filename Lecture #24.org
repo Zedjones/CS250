@@ -1,0 +1,76 @@
+* Review of boolean operators 
+ - F = A AND B OR C AND NOT A OR NOT B AND C
+  - Inversions first, then ANDs, then ORs (XOR)
+* Types of circuits 
+ - Combinational circuit
+  - Circuit whose output is completely defined by its input 
+  - Pass inputs in, get outputs out (just like functional programming) 
+  - Boolean expressions are combinational circuits 
+ - Sequential circuit 
+  - Circuit whose output depends on both input and saved state  
+  - Memory can be used with input put can also be written to before output
+   - Memory being changed could then change the output even given the
+     same input
+* Gates
+ - Input and output represented as lines
+ - Every gate has PWR and GND hooked up to it
+  - This is how we invert from GND 
+ - AND gate looks like a "D"
+  - Inputs on left, output on right
+ - OR gate looks like a D with more curvature
+  - Looks compressed vertically 
+  - Inputs on left, output on right
+ - NOT gate is a triangle with a circle on the right side
+  - Inputs on left, output on right
+  - Circle needs to be big enough that it has white space in the middle
+ - XOR is like OR with a second arch to the left of the "D" shape
+  - Inputs on left, output on right
+   - Input lines stop on the first arch on the left 
+* Rules about running wires 
+ - Diagonal wires are not allowed, must be moved horizontally or vertically 
+  - Right angles to everything
+ - If two wires are connected, big filled in circle represents the connection
+  - If it doesn't have a dot, then it's just crossing
+ - Clean way to draw circuits 
+  - Start with variables at the top, make a separate line beside the main
+    lines for inversions 
+    - Then draw the actual gates to the right of the lines 
+* Simplifications 
+ - Algebraic simplifications of boolean expressions are not fun, hard to know
+   when you're done or which rule to apply for 
+   - Mathematicians came up with KMAPs, but we don't have time to cover them
+     in this class 
+* Math vs Circuitry
+ - In math, F wouldn't have a value without A, B, and C. But with the circuitry, there is always
+   electricity flowing through the wire so there is always an output
+   - However, the output is not necessarily meaningful (such as in this case)
+ - If given A, B, and C, but not given any time, then F still doesn't have a
+   value 
+   - *Propogation delay* is the time between when the inputs are introduced into
+     the circuit and when the output becomes meaningful/the circuit becomes
+     stable.
+     - Each gate also have a propogation delay 
+     - The bottleneck is the longer path (the largest number of gates)
+     - In the class, we're not measuring propogation delays, but rather using
+       the level of a circuit 
+       - Very coarse way of measuring the speed of a circuit 
+       - The maximum number of gates* between the input and the output
+        - *We don't count inverters in the number of gates
+         - Reason for this is that often we get the inversion of the input
+           for free (can access both in parallel)
+           - When drawing it, we still have to actually draw the inverter 
+* Truth tables 
+ - | A B C | G         |
+   |-------|-----------|
+   | 0 0 0 | 0         |
+   | 0 0 1 | 1         | 
+   | 0 1 0 | 1         |
+   | 0 1 1 | 0         |
+   | 1 0 0 | 1         |
+   | 1 0 1 | 0         |
+   | 1 1 0 | 1         |
+   | 1 1 1 | 0         |
+  - Input first, and then output 
+   - Put input alphabetically 
+    - Put the rows in numerical order
+    
