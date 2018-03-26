@@ -1,0 +1,40 @@
+* Standard Forms
+ - Sum of product
+  - Expression with product terms OR'ed together
+ - Product of sum
+  - Expression with sum terms AND'ed together
+ - *Check physical notes for examples*
+* Types of terms
+ - Min term
+  - Product term with all variables in the problem
+ - Max term
+  - Sum term with all variables in the problem
+ - Complements are separate from normal terms for both of these
+  - 2^3 possible combinations for 3 terms
+ - Relating to truth tables
+   | A B C | NOT A AND NOT B AND C  | A AND B AND C |
+   |-------|------------------------|---------------|
+   | 0 0 0 | 0                      | 0             | 
+   | 0 0 1 | 1                      | 0             |
+   | 0 1 0 | 0                      | 0             |
+   | 0 1 1 | 0                      | 0             |
+   | 1 0 0 | 0                      | 0             |
+   | 1 0 1 | 0                      | 0             |
+   | 1 1 0 | 0                      | 0             |
+   | 1 1 1 | 0                      | 1             |
+   - One min term for each row, where it is 1 and every other row is 0
+    - Max term is the opposite of this 
+     - 0 for one row and 1 for everything else 
+   - *Look at physical notes for the rest of this* 
+   - Given any function, we can build a 2 level circuit for it 
+    - Not necessarily the smallest function to implement F
+* Extra Gates 
+ - NAND
+  - NOT(A and B)
+ - NOR
+  - NOT(A OR B)
+ - XNOR
+  - NOT(A XOR B)
+ - Pass result of regular gate through the inverter 
+  - However, there is a better way to do this with gates
+ - *Check physical notes for symbols*
