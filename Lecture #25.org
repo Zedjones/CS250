@@ -38,3 +38,17 @@
  - Pass result of regular gate through the inverter 
   - However, there is a better way to do this with gates
  - *Check physical notes for symbols*
+ - NAND gates can be used as inverters 
+  - NOT A = NOT(A AND A)
+   - *"Might want to learn this"*
+* Larger Combinational Circuits 
+ - Decoder
+  - N inputs and 2^N outputs 
+  - Call this an n-to-2^n decoder 
+   - Name should tell you number of inputs and outputs 
+  - Input is treated as an n-bit #
+  - Outputs are labeled from 0 to 2^n-1
+  - Output sends a 1 to the output wire that corresponds to the value of the
+    input, sends 0 to all other output wires
+  - *Physical notes for truth table for 2-to-4 decoder*
+  - *Also a box decoder* 
