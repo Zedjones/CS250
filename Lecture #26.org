@@ -1,0 +1,25 @@
+* Decoders
+ - Always draw the decoder as a box 
+ - Min-term generating machine 
+ - 2-to-4 decoder
+  - 2 inputs, 4 outputs
+   - Have a function for each column (wire) on the truth table
+  - E is enable, we want regular output when E is 1, all 0s when A is 0
+   - Can accomplish this by ANDing enable with the rest of our function
+    - Functions as a kind of "door"
+  - *Implementing a decoder diagram on physical notes*
+   - Also for a 3-to-8 decoder 
+* Multiplexer (MUX)
+ - n - select inputs
+  - Treat select inputs as an n bit binary number 
+ - 2^n data inputs
+  - Label 0..2^n-1
+ - 1 output
+ - Call this 2^nx1 MUX
+  - Data input to output multiplexer
+ - Uses select inputs to pick the input wire that corresponds to the select
+   value and send that wire's data to the output
+ - *Check physical notes for MUX example*
+ - You can never take multiple input wires, tie them together, and assume the
+   output would be correct
+   - This is due to non-true zero voltage, binary being a threshold 
